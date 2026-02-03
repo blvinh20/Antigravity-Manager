@@ -11,4 +11,7 @@ services:
     volumes:
       - antigravity_data:/root/.antigravity_tools
 
+    ports:
+      - "8045:8045"   # <<< QUAN TRỌNG
+
     restart: unless-stopped
