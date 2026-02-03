@@ -2,20 +2,13 @@ services:
   antigravity-manager:
     image: lbjlaq/antigravity-manager:latest
     container_name: antigravity-manager
+
     environment:
       - API_KEY=${API_KEY:-sk-your-api-key}
       - WEB_PASSWORD=${WEB_PASSWORD:-}
       - ABV_MAX_BODY_SIZE=${ABV_MAX_BODY_SIZE:-104857600}
+
     volumes:
       - antigravity_data:/root/.antigravity_tools
-    healthcheck:
-      test:
-        - CMD
-        - curl
-        - -f
-        - 'http://localhost:8045/health'  
+
     restart: unless-stopped
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
