@@ -1,6 +1,6 @@
 services:
   antigravity-manager:
-    image: '1bilalq/antigravity-manager:latest'
+    image: lbjlaq/antigravity-manager:latest
     container_name: antigravity-manager
     environment:
       - API_KEY=${API_KEY:-sk-your-api-key}
