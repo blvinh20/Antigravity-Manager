@@ -8,6 +8,12 @@ services:
       - ABV_MAX_BODY_SIZE=${ABV_MAX_BODY_SIZE:-104857600}
     volumes:
       - antigravity_data:/root/.antigravity_tools
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -f
+        - 'http://localhost:8045/health'  
     restart: unless-stopped
       interval: 30s
       timeout: 10s
